@@ -1,4 +1,6 @@
-﻿namespace TokenizedFuzzyGroup;
+﻿using BenchmarkDotNet.Running;
+
+namespace TokenizedFuzzyGroup;
 
 /// <summary>
 /// Provides functionality to group similar strings together.
@@ -183,7 +185,7 @@ public static class Program
     {
         if (args.Length > 0 && args[0] == "benchmark")
         {
-            var summary = BenchmarkDotNet.Running.BenchmarkRunner.Run<Benchmark>();
+            var summary = BenchmarkRunner.Run<Benchmark>();
             return;
         }
 

@@ -10,7 +10,7 @@ public class Benchmark
     [GlobalSetup]
     public void Setup()
     {
-        var random = new Random();
+        var random = new Random(69420);
         _similarityThreshold = 0.6;
 
         var basePhrases = new List<string>
