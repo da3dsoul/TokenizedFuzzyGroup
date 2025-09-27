@@ -185,21 +185,12 @@ public static class Program
     {
         if (args.Length > 0 && args[0] == "benchmark")
         {
-            var summary = BenchmarkRunner.Run<Benchmark>();
+            BenchmarkRunner.Run<Benchmark>();
             return;
         }
 
-        var stringList = new List<string>
-        {
-            "the quick brown fox",
-            "a quick brown fox",    // Similar to the first
-            "the quiet brown cat",  // Somewhat similar to the first
-            "jumps over the lazy dog",
-            "jumped over a lazy dog", // Similar to the one above
-            "the lazy dog sleeps",
-            "the five boxing wizards jump quickly", // Unique
-            "a quick brown fox"     // Duplicate, should be grouped
-        };
+        var random = new Random(69420);
+        var stringList = DataGenerator.GetData(random);
 
         Console.WriteLine("Original List of Strings:");
         stringList.ForEach(s => Console.WriteLine($"- \"{s}\""));
